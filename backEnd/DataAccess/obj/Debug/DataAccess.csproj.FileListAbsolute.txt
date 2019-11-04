@@ -1,0 +1,34 @@
+G:\Asp.net Software project\unicornBackEnd\DataAccess\bin\Debug\DataAccess.dll.config
+G:\Asp.net Software project\unicornBackEnd\DataAccess\bin\Debug\DataAccess.dll
+G:\Asp.net Software project\unicornBackEnd\DataAccess\bin\Debug\DataAccess.pdb
+G:\Asp.net Software project\unicornBackEnd\DataAccess\bin\Debug\EntityFramework.dll
+G:\Asp.net Software project\unicornBackEnd\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+G:\Asp.net Software project\unicornBackEnd\DataAccess\bin\Debug\EntityFramework.xml
+G:\Asp.net Software project\unicornBackEnd\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+G:\Asp.net Software project\unicornBackEnd\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+G:\Asp.net Software project\unicornBackEnd\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+G:\Asp.net Software project\unicornBackEnd\DataAccess\obj\Debug\DataAccess.dll
+G:\Asp.net Software project\unicornBackEnd\DataAccess\obj\Debug\DataAccess.pdb
+E:\C# Projects\unicornbackend\DataAccess\bin\Debug\DataAccess.dll.config
+E:\C# Projects\unicornbackend\DataAccess\bin\Debug\DataAccess.dll
+E:\C# Projects\unicornbackend\DataAccess\bin\Debug\DataAccess.pdb
+E:\C# Projects\unicornbackend\DataAccess\bin\Debug\EntityFramework.dll
+E:\C# Projects\unicornbackend\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+E:\C# Projects\unicornbackend\DataAccess\bin\Debug\EntityFramework.xml
+E:\C# Projects\unicornbackend\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+E:\C# Projects\unicornbackend\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+E:\C# Projects\unicornbackend\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+E:\C# Projects\unicornbackend\DataAccess\obj\Debug\DataAccess.dll
+E:\C# Projects\unicornbackend\DataAccess\obj\Debug\DataAccess.pdb
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\bin\Debug\DataAccess.dll.config
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\bin\Debug\DataAccess.dll
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\bin\Debug\DataAccess.pdb
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\bin\Debug\EntityFramework.dll
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\bin\Debug\EntityFramework.xml
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\obj\Debug\DataAccess.csprojAssemblyReference.cache
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\obj\Debug\DataAccess.dll
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\obj\Debug\DataAccess.pdb

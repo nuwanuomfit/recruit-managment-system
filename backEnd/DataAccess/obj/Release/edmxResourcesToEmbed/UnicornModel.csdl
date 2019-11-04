@@ -1,0 +1,785 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="unicorn_databaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AppAnswer">
+    <Key>
+      <PropertyRef Name="AppAnswerId" />
+    </Key>
+    <Property Name="AppAnswerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicantId" Type="Int32" Nullable="false" />
+    <Property Name="QuestionId" Type="Int32" />
+    <Property Name="Answer" Type="Int32" Nullable="false" />
+    <Property Name="State" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Applicant" Relationship="Self.FK_AppAnswers_Applicant" FromRole="AppAnswers" ToRole="Applicant" />
+    <NavigationProperty Name="Question" Relationship="Self.FK_AppAnswers_Questions" FromRole="AppAnswers" ToRole="Questions" />
+  </EntityType>
+  <EntityType Name="Applicant">
+    <Key>
+      <PropertyRef Name="ApplicantId" />
+    </Key>
+    <Property Name="ApplicantId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NIC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TepNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="ExamId" Type="Int32" />
+    <Property Name="InterviewId" Type="Int32" />
+    <NavigationProperty Name="AppAnswers" Relationship="Self.FK_AppAnswers_Applicant" FromRole="Applicant" ToRole="AppAnswers" />
+    <NavigationProperty Name="Exam" Relationship="Self.FK_Applicant_Exam" FromRole="Applicant" ToRole="Exam" />
+    <NavigationProperty Name="Interview" Relationship="Self.FK_Applicant_Interview" FromRole="Applicant" ToRole="Interview" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Applicant_User" FromRole="Applicant" ToRole="Users" />
+    <NavigationProperty Name="Comments" Relationship="Self.FK_Comments_Applicant" FromRole="Applicant" ToRole="Comments" />
+    <NavigationProperty Name="Marks" Relationship="Self.FK_Marks_Applicant" FromRole="Applicant" ToRole="Marks" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentId" />
+    </Key>
+    <Property Name="CommentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Comment1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Marks" Type="Int32" />
+    <Property Name="ApplicantId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" />
+    <NavigationProperty Name="Applicant" Relationship="Self.FK_Comments_Applicant" FromRole="Comments" ToRole="Applicant" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Comments_User" FromRole="Comments" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Exam">
+    <Key>
+      <PropertyRef Name="ExamId" />
+    </Key>
+    <Property Name="ExamId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Duration" Type="Int32" Nullable="false" />
+    <Property Name="NoOfQuestions" Type="Int32" Nullable="false" />
+    <Property Name="Programming" Type="Int32" Nullable="false" />
+    <Property Name="Mathematics" Type="Int32" Nullable="false" />
+    <Property Name="IQ" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Applicants" Relationship="Self.FK_Applicant_Exam" FromRole="Exam" ToRole="Applicant" />
+  </EntityType>
+  <EntityType Name="IntAssign">
+    <Key>
+      <PropertyRef Name="IntAssignId" />
+    </Key>
+    <Property Name="IntAssignId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InterviewId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" />
+    <NavigationProperty Name="Interview" Relationship="Self.FK_IntAssign_Interview" FromRole="IntAssign" ToRole="Interview" />
+    <NavigationProperty Name="User" Relationship="Self.FK_IntAssign_User" FromRole="IntAssign" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Interview">
+    <Key>
+      <PropertyRef Name="InterviewId" />
+    </Key>
+    <Property Name="InterviewId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Time" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="UserId" Type="Int32" />
+    <NavigationProperty Name="Applicants" Relationship="Self.FK_Applicant_Interview" FromRole="Interview" ToRole="Applicant" />
+    <NavigationProperty Name="IntAssigns" Relationship="Self.FK_IntAssign_Interview" FromRole="Interview" ToRole="IntAssign" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Interview_User" FromRole="Interview" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Mark">
+    <Key>
+      <PropertyRef Name="MarksId" />
+    </Key>
+    <Property Name="MarksId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MCQMarks" Type="Int32" Nullable="false" />
+    <Property Name="EssayMarks" Type="Int32" />
+    <Property Name="ApplicantId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" />
+    <NavigationProperty Name="Applicant" Relationship="Self.FK_Marks_Applicant" FromRole="Marks" ToRole="Applicant" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Marks_User" FromRole="Marks" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="NotificationDate">
+    <Key>
+      <PropertyRef Name="NotifiDateId" />
+    </Key>
+    <Property Name="NotifiDateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NotifiDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="NotificationId" />
+    </Key>
+    <Property Name="NotificationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Notification1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Checked" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Notifications_User" FromRole="Notifications" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="QuestionId" />
+    </Key>
+    <Property Name="QuestionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuestionType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Question1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Answer1" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Answer1State" Type="Boolean" Nullable="false" />
+    <Property Name="Answer2" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Answer2State" Type="Boolean" Nullable="false" />
+    <Property Name="Answer3" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Answer3State" Type="Boolean" Nullable="false" />
+    <Property Name="Answer4" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Answer4State" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AppAnswers" Relationship="Self.FK_AppAnswers_Questions" FromRole="Questions" ToRole="AppAnswers" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Questions_User" FromRole="Questions" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="UserLoginId" />
+    </Key>
+    <Property Name="UserLoginId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserIdLogin" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="isAdmin" Type="Boolean" />
+    <Property Name="isInterviewer" Type="Boolean" />
+    <Property Name="isReceiptionist" Type="Boolean" />
+    <Property Name="isApplicant" Type="Boolean" />
+    <Property Name="LoginUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LoginPassword" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpId" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TepNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Admin" Type="Boolean" Nullable="false" />
+    <Property Name="Interviewer" Type="Boolean" Nullable="false" />
+    <Property Name="Receiptionist" Type="Boolean" Nullable="false" />
+    <Property Name="AdminId" Type="Int32" />
+    <NavigationProperty Name="Applicants" Relationship="Self.FK_Applicant_User" FromRole="Users" ToRole="Applicant" />
+    <NavigationProperty Name="Comments" Relationship="Self.FK_Comments_User" FromRole="Users" ToRole="Comments" />
+    <NavigationProperty Name="IntAssigns" Relationship="Self.FK_IntAssign_User" FromRole="Users" ToRole="IntAssign" />
+    <NavigationProperty Name="Interviews" Relationship="Self.FK_Interview_User" FromRole="Users" ToRole="Interview" />
+    <NavigationProperty Name="Marks" Relationship="Self.FK_Marks_User" FromRole="Users" ToRole="Marks" />
+    <NavigationProperty Name="Notifications" Relationship="Self.FK_Notifications_User" FromRole="Users" ToRole="Notifications" />
+    <NavigationProperty Name="Questions" Relationship="Self.FK_Questions_User" FromRole="Users" ToRole="Questions" />
+  </EntityType>
+  <Association Name="FK_AppAnswers_Applicant">
+    <End Role="Applicant" Type="Self.Applicant" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppAnswers" Type="Self.AppAnswer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applicant">
+        <PropertyRef Name="ApplicantId" />
+      </Principal>
+      <Dependent Role="AppAnswers">
+        <PropertyRef Name="ApplicantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppAnswers_Questions">
+    <End Role="Questions" Type="Self.Question" Multiplicity="0..1" />
+    <End Role="AppAnswers" Type="Self.AppAnswer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Questions">
+        <PropertyRef Name="QuestionId" />
+      </Principal>
+      <Dependent Role="AppAnswers">
+        <PropertyRef Name="QuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Applicant_Exam">
+    <End Role="Exam" Type="Self.Exam" Multiplicity="0..1" />
+    <End Role="Applicant" Type="Self.Applicant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exam">
+        <PropertyRef Name="ExamId" />
+      </Principal>
+      <Dependent Role="Applicant">
+        <PropertyRef Name="ExamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Applicant_Interview">
+    <End Role="Interview" Type="Self.Interview" Multiplicity="0..1" />
+    <End Role="Applicant" Type="Self.Applicant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Interview">
+        <PropertyRef Name="InterviewId" />
+      </Principal>
+      <Dependent Role="Applicant">
+        <PropertyRef Name="InterviewId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Applicant_User">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Applicant" Type="Self.Applicant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Applicant">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comments_Applicant">
+    <End Role="Applicant" Type="Self.Applicant" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applicant">
+        <PropertyRef Name="ApplicantId" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="ApplicantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Marks_Applicant">
+    <End Role="Applicant" Type="Self.Applicant" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Marks" Type="Self.Mark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applicant">
+        <PropertyRef Name="ApplicantId" />
+      </Principal>
+      <Dependent Role="Marks">
+        <PropertyRef Name="ApplicantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comments_User">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IntAssign_Interview">
+    <End Role="Interview" Type="Self.Interview" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="IntAssign" Type="Self.IntAssign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Interview">
+        <PropertyRef Name="InterviewId" />
+      </Principal>
+      <Dependent Role="IntAssign">
+        <PropertyRef Name="InterviewId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IntAssign_User">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="IntAssign" Type="Self.IntAssign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="IntAssign">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Interview_User">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Interview" Type="Self.Interview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Interview">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Marks_User">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Marks" Type="Self.Mark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Marks">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notifications_User">
+    <End Role="Users" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Notifications" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Notifications">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Questions_User">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Questions" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Questions">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="unicorn_databaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AppAnswers" EntityType="Self.AppAnswer" />
+    <EntitySet Name="Applicants" EntityType="Self.Applicant" />
+    <EntitySet Name="Comments" EntityType="Self.Comment" />
+    <EntitySet Name="Exams" EntityType="Self.Exam" />
+    <EntitySet Name="IntAssigns" EntityType="Self.IntAssign" />
+    <EntitySet Name="Interviews" EntityType="Self.Interview" />
+    <EntitySet Name="Marks" EntityType="Self.Mark" />
+    <EntitySet Name="NotificationDates" EntityType="Self.NotificationDate" />
+    <EntitySet Name="Notifications" EntityType="Self.Notification" />
+    <EntitySet Name="Questions" EntityType="Self.Question" />
+    <EntitySet Name="UserLogins" EntityType="Self.UserLogin" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_AppAnswers_Applicant" Association="Self.FK_AppAnswers_Applicant">
+      <End Role="Applicant" EntitySet="Applicants" />
+      <End Role="AppAnswers" EntitySet="AppAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppAnswers_Questions" Association="Self.FK_AppAnswers_Questions">
+      <End Role="Questions" EntitySet="Questions" />
+      <End Role="AppAnswers" EntitySet="AppAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Applicant_Exam" Association="Self.FK_Applicant_Exam">
+      <End Role="Exam" EntitySet="Exams" />
+      <End Role="Applicant" EntitySet="Applicants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Applicant_Interview" Association="Self.FK_Applicant_Interview">
+      <End Role="Interview" EntitySet="Interviews" />
+      <End Role="Applicant" EntitySet="Applicants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Applicant_User" Association="Self.FK_Applicant_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Applicant" EntitySet="Applicants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comments_Applicant" Association="Self.FK_Comments_Applicant">
+      <End Role="Applicant" EntitySet="Applicants" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Marks_Applicant" Association="Self.FK_Marks_Applicant">
+      <End Role="Applicant" EntitySet="Applicants" />
+      <End Role="Marks" EntitySet="Marks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comments_User" Association="Self.FK_Comments_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IntAssign_Interview" Association="Self.FK_IntAssign_Interview">
+      <End Role="Interview" EntitySet="Interviews" />
+      <End Role="IntAssign" EntitySet="IntAssigns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IntAssign_User" Association="Self.FK_IntAssign_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="IntAssign" EntitySet="IntAssigns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Interview_User" Association="Self.FK_Interview_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Interview" EntitySet="Interviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Marks_User" Association="Self.FK_Marks_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Marks" EntitySet="Marks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notifications_User" Association="Self.FK_Notifications_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Notifications" EntitySet="Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Questions_User" Association="Self.FK_Questions_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Questions" EntitySet="Questions" />
+    </AssociationSet>
+    <FunctionImport Name="spAddApplicantInterviews">
+      <Parameter Name="interviewId" Mode="In" Type="Int32" />
+      <Parameter Name="applicantId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spAddExamApplicant">
+      <Parameter Name="ExamId" Mode="In" Type="Int32" />
+      <Parameter Name="ApplicantId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spAddInterviewres">
+      <Parameter Name="interviewId" Mode="In" Type="Int32" />
+      <Parameter Name="interviewer1Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spAddQandA">
+      <Parameter Name="QuestionId" Mode="In" Type="Int32" />
+      <Parameter Name="QuestionType" Mode="In" Type="String" />
+      <Parameter Name="Question" Mode="In" Type="String" />
+      <Parameter Name="Date" Mode="In" Type="DateTime" />
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+      <Parameter Name="Answer1" Mode="In" Type="String" />
+      <Parameter Name="Answer1state" Mode="In" Type="Boolean" />
+      <Parameter Name="Answer2" Mode="In" Type="String" />
+      <Parameter Name="Answer2state" Mode="In" Type="Boolean" />
+      <Parameter Name="Answer3" Mode="In" Type="String" />
+      <Parameter Name="Answer3state" Mode="In" Type="Boolean" />
+      <Parameter Name="Answer4" Mode="In" Type="String" />
+      <Parameter Name="Answer4state" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="spAddTotalMarks">
+      <Parameter Name="ApplicantId" Mode="In" Type="Int32" />
+      <Parameter Name="MCQMarks" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spCheckLogin" ReturnType="Collection(unicorn_databaseModel.spCheckLogin_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spCheckLoginInWebApp" ReturnType="Collection(unicorn_databaseModel.spCheckLoginInWebApp_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spCreateInterview">
+      <Parameter Name="interviewId" Mode="In" Type="Int32" />
+      <Parameter Name="date" Mode="In" Type="DateTime" />
+      <Parameter Name="time" Mode="In" Type="DateTime" />
+      <Parameter Name="adminId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spDeleteExam">
+      <Parameter Name="ExamId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spDeleteInterview">
+      <Parameter Name="interviewId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spEditApplicants">
+      <Parameter Name="ApplicantId" Mode="In" Type="Int32" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+      <Parameter Name="NIC" Mode="In" Type="String" />
+      <Parameter Name="TepNo" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="State" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spEditQusnAns">
+      <Parameter Name="QuestionId" Mode="In" Type="Int32" />
+      <Parameter Name="Question" Mode="In" Type="String" />
+      <Parameter Name="Answer1" Mode="In" Type="String" />
+      <Parameter Name="Answer1state" Mode="In" Type="Boolean" />
+      <Parameter Name="Answer2" Mode="In" Type="String" />
+      <Parameter Name="Answer2state" Mode="In" Type="Boolean" />
+      <Parameter Name="Answer3" Mode="In" Type="String" />
+      <Parameter Name="Answer3state" Mode="In" Type="Boolean" />
+      <Parameter Name="Answer4" Mode="In" Type="String" />
+      <Parameter Name="Answer4state" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="spEditUsers">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+      <Parameter Name="EmpId" Mode="In" Type="String" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="TepNo" Mode="In" Type="String" />
+      <Parameter Name="Admin" Mode="In" Type="Boolean" />
+      <Parameter Name="Interviewer" Mode="In" Type="Boolean" />
+      <Parameter Name="Receiptionist" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="spForgotPassword" ReturnType="Collection(unicorn_databaseModel.spForgotPassword_Result)">
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetAllUsers" ReturnType="Collection(unicorn_databaseModel.spGetAllUsers_Result)" />
+    <FunctionImport Name="spGetAnswer" ReturnType="Collection(unicorn_databaseModel.spGetAnswer_Result)">
+      <Parameter Name="QuestionId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetApplicantByInterviewId" ReturnType="Collection(unicorn_databaseModel.spGetApplicantByInterviewId_Result)">
+      <Parameter Name="InterviewId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetApplicantEmail" ReturnType="Collection(unicorn_databaseModel.spGetApplicantEmail_Result)">
+      <Parameter Name="applicantId" Mode="In" Type="Int32" />
+      <Parameter Name="interviewId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetApplicantEmailForExam" ReturnType="Collection(unicorn_databaseModel.spGetApplicantEmailForExam_Result)">
+      <Parameter Name="applicantId" Mode="In" Type="Int32" />
+      <Parameter Name="examId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetApplicantsByExamId" ReturnType="Collection(unicorn_databaseModel.spGetApplicantsByExamId_Result)">
+      <Parameter Name="examId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetApplicantsResults" ReturnType="Collection(unicorn_databaseModel.spGetApplicantsResults_Result)">
+      <Parameter Name="applicantId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetAppQuestion" ReturnType="Collection(unicorn_databaseModel.spGetAppQuestion_Result)">
+      <Parameter Name="QuestionId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetAppResultSheet" ReturnType="Collection(unicorn_databaseModel.spGetAppResultSheet_Result)">
+      <Parameter Name="ApplicantId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetAppState" ReturnType="Collection(Int32)">
+      <Parameter Name="ApplicantId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetExamApplicant" ReturnType="Collection(unicorn_databaseModel.spGetExamApplicant_Result)" />
+    <FunctionImport Name="spGetExamByApplicant" ReturnType="Collection(unicorn_databaseModel.spGetExamByApplicant_Result)">
+      <Parameter Name="applicantId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetExamNotifiers" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="spGetExamQus" ReturnType="Collection(unicorn_databaseModel.spGetExamQus_Result)">
+      <Parameter Name="prog" Mode="In" Type="Int32" />
+      <Parameter Name="math" Mode="In" Type="Int32" />
+      <Parameter Name="iq" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetInterviewers" ReturnType="Collection(unicorn_databaseModel.spGetInterviewers_Result)" />
+    <FunctionImport Name="spGetInterviewInterviewers" ReturnType="Collection(unicorn_databaseModel.spGetInterviewInterviewers_Result)">
+      <Parameter Name="interviewId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetInterviews" ReturnType="Collection(unicorn_databaseModel.spGetInterviews_Result)" />
+    <FunctionImport Name="spGetInterviewsByDate" ReturnType="Collection(unicorn_databaseModel.spGetInterviewsByDate_Result)">
+      <Parameter Name="date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="spGetLastInterviewId" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="spGetLastNotifiDate" ReturnType="Collection(DateTime)" />
+    <FunctionImport Name="spGetNotifications" ReturnType="Collection(unicorn_databaseModel.spGetNotifications_Result)">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetNotifyExam" ReturnType="Collection(Int32)">
+      <Parameter Name="Date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="spGetNotifyInterviewers" ReturnType="Collection(Int32)">
+      <Parameter Name="InterviewId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetNotifyInterviews" ReturnType="Collection(unicorn_databaseModel.spGetNotifyInterviews_Result)">
+      <Parameter Name="Date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="spGetQuestions" ReturnType="Collection(unicorn_databaseModel.spGetQuestions_Result)">
+      <Parameter Name="questionType" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetUsers" ReturnType="Collection(unicorn_databaseModel.spGetUsers_Result)">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertAppAnswers">
+      <Parameter Name="ApplicantId" Mode="In" Type="Int32" />
+      <Parameter Name="QuestionId" Mode="In" Type="Int32" />
+      <Parameter Name="Answer" Mode="In" Type="Int32" />
+      <Parameter Name="State" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="spSelectApplicantsForInterview" ReturnType="Collection(unicorn_databaseModel.spSelectApplicantsForInterview_Result)" />
+    <FunctionImport Name="spSetNotifyChecked">
+      <Parameter Name="NotifyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdateAppState">
+      <Parameter Name="ApplicantId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdateNotificationDate">
+      <Parameter Name="NotifiDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="spCheckLogin_Result">
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="200" />
+    <Property Type="Boolean" Name="Admin" Nullable="false" />
+    <Property Type="Boolean" Name="Interviewer" Nullable="false" />
+    <Property Type="Boolean" Name="Receiptionist" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spCheckLoginInWebApp_Result">
+    <Property Type="Int32" Name="UserIdLogin" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="Boolean" Name="isAdmin" Nullable="true" />
+    <Property Type="Boolean" Name="isInterviewer" Nullable="true" />
+    <Property Type="Boolean" Name="isReceiptionist" Nullable="true" />
+    <Property Type="Boolean" Name="isApplicant" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spForgotPassword_Result">
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="spGetAllUsers_Result">
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="EmpId" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Gender" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TepNo" Nullable="true" MaxLength="15" />
+    <Property Type="Boolean" Name="Admin" Nullable="false" />
+    <Property Type="Boolean" Name="Interviewer" Nullable="false" />
+    <Property Type="Boolean" Name="Receiptionist" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetAnswer_Result">
+    <Property Type="Boolean" Name="Answer1State" Nullable="false" />
+    <Property Type="Boolean" Name="Answer2State" Nullable="false" />
+    <Property Type="Boolean" Name="Answer3State" Nullable="false" />
+    <Property Type="Boolean" Name="Answer4State" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetApplicantByInterviewId_Result">
+    <Property Type="Int32" Name="ApplicantId" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Gender" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="NIC" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="TepNo" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="spGetApplicantEmail_Result">
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="Date" Nullable="false" />
+    <Property Type="DateTime" Name="Time" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetApplicantEmailForExam_Result">
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="Date" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetApplicantsByExamId_Result">
+    <Property Type="Int32" Name="ApplicantId" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Gender" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="NIC" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="TepNo" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="State" Nullable="false" />
+    <Property Type="Int32" Name="UserId" Nullable="true" />
+    <Property Type="Int32" Name="ExamId" Nullable="true" />
+    <Property Type="Int32" Name="InterviewId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spGetApplicantsResults_Result">
+    <Property Type="Int32" Name="CommentId" Nullable="false" />
+    <Property Type="String" Name="Comment" Nullable="false" />
+    <Property Type="Int32" Name="Marks" Nullable="true" />
+    <Property Type="String" Name="InterviewerName" Nullable="true" MaxLength="101" />
+  </ComplexType>
+  <ComplexType Name="spGetAppQuestion_Result">
+    <Property Type="Int32" Name="QuestionId" Nullable="false" />
+    <Property Type="String" Name="Question" Nullable="false" />
+    <Property Type="String" Name="QuestionType" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Answer1" Nullable="false" MaxLength="3000" />
+    <Property Type="String" Name="Answer2" Nullable="false" MaxLength="3000" />
+    <Property Type="String" Name="Answer3" Nullable="false" MaxLength="3000" />
+    <Property Type="String" Name="Answer4" Nullable="false" MaxLength="3000" />
+  </ComplexType>
+  <ComplexType Name="spGetAppResultSheet_Result">
+    <Property Type="Int32" Name="QuestionId" Nullable="true" />
+    <Property Type="Int32" Name="Answer" Nullable="false" />
+    <Property Type="Boolean" Name="State" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetExamApplicant_Result">
+    <Property Type="Int32" Name="ApplicantId" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Gender" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="NIC" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="TepNo" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="State" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetExamByApplicant_Result">
+    <Property Type="Int32" Name="Duration" Nullable="false" />
+    <Property Type="Int32" Name="NoOfQuestions" Nullable="false" />
+    <Property Type="Int32" Name="Programming" Nullable="false" />
+    <Property Type="Int32" Name="Mathematics" Nullable="false" />
+    <Property Type="Int32" Name="IQ" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetExamQus_Result">
+    <Property Type="Int32" Name="QuestionId" Nullable="false" />
+    <Property Type="String" Name="QuestionType" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Question" Nullable="false" />
+    <Property Type="String" Name="Answer1" Nullable="false" MaxLength="3000" />
+    <Property Type="String" Name="Answer2" Nullable="false" MaxLength="3000" />
+    <Property Type="String" Name="Answer3" Nullable="false" MaxLength="3000" />
+    <Property Type="String" Name="Answer4" Nullable="false" MaxLength="3000" />
+  </ComplexType>
+  <ComplexType Name="spGetInterviewers_Result">
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="EmpId" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TepNo" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="spGetInterviewInterviewers_Result">
+    <Property Type="String" Name="InterviewerFirstName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="InterviewerLastName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spGetInterviews_Result">
+    <Property Type="Int32" Name="InterviewId" Nullable="false" />
+    <Property Type="DateTime" Name="Date" Nullable="false" />
+    <Property Type="DateTime" Name="Time" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetInterviewsByDate_Result">
+    <Property Type="Int32" Name="InterviewId" Nullable="false" />
+    <Property Type="DateTime" Name="Date" Nullable="false" />
+    <Property Type="DateTime" Name="Time" Nullable="false" />
+    <Property Type="Int32" Name="UserId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spGetNotifications_Result">
+    <Property Type="Int32" Name="NotificationId" Nullable="false" />
+    <Property Type="DateTime" Name="DateTime" Nullable="false" />
+    <Property Type="String" Name="Notification" Nullable="false" MaxLength="500" />
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="Boolean" Name="Checked" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetNotifyInterviews_Result">
+    <Property Type="Int32" Name="InterviewId" Nullable="false" />
+    <Property Type="DateTime" Name="Date" Nullable="false" />
+    <Property Type="DateTime" Name="Time" Nullable="false" />
+    <Property Type="Int32" Name="UserId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spGetQuestions_Result">
+    <Property Type="Int32" Name="QuestionId" Nullable="false" />
+    <Property Type="String" Name="QuestionType" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Question" Nullable="false" />
+    <Property Type="DateTime" Name="Date" Nullable="false" />
+    <Property Type="Int32" Name="UserId" Nullable="true" />
+    <Property Type="String" Name="Answer1" Nullable="false" MaxLength="3000" />
+    <Property Type="Boolean" Name="Answer1State" Nullable="false" />
+    <Property Type="String" Name="Answer2" Nullable="false" MaxLength="3000" />
+    <Property Type="Boolean" Name="Answer2State" Nullable="false" />
+    <Property Type="String" Name="Answer3" Nullable="false" MaxLength="3000" />
+    <Property Type="Boolean" Name="Answer3State" Nullable="false" />
+    <Property Type="String" Name="Answer4" Nullable="false" MaxLength="3000" />
+    <Property Type="Boolean" Name="Answer4State" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="101" />
+  </ComplexType>
+  <ComplexType Name="spGetUsers_Result">
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="EmpId" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Gender" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TepNo" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="200" />
+    <Property Type="Boolean" Name="Admin" Nullable="false" />
+    <Property Type="Boolean" Name="Interviewer" Nullable="false" />
+    <Property Type="Boolean" Name="Receiptionist" Nullable="false" />
+    <Property Type="Int32" Name="AdminId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spSelectApplicantsForInterview_Result">
+    <Property Type="Int32" Name="ApplicantId" Nullable="false" />
+    <Property Type="String" Name="ApplicantFirstName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ApplicantLastName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Gender" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="NIC" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="TepNo" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="MCQMarks" Nullable="false" />
+  </ComplexType>
+</Schema>

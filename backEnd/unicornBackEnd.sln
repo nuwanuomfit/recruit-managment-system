@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "unicornBackEnd", "unicornBackEnd\unicornBackEnd.csproj", "{BB343712-FB70-4D0A-B602-1CA01E4A076A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{178076CB-E989-4434-A4BE-E483777E3BAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB343712-FB70-4D0A-B602-1CA01E4A076A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB343712-FB70-4D0A-B602-1CA01E4A076A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB343712-FB70-4D0A-B602-1CA01E4A076A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB343712-FB70-4D0A-B602-1CA01E4A076A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{178076CB-E989-4434-A4BE-E483777E3BAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{178076CB-E989-4434-A4BE-E483777E3BAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{178076CB-E989-4434-A4BE-E483777E3BAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{178076CB-E989-4434-A4BE-E483777E3BAC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E9197237-71A8-456B-A399-8B6B7CA59E13}
+	EndGlobalSection
+EndGlobal

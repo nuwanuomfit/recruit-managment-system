@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="unicorn_databaseModelStoreContainer" CdmEntityContainer="unicorn_databaseEntities">
+    <EntitySetMapping Name="AppAnswers">
+      <EntityTypeMapping TypeName="unicorn_databaseModel.AppAnswer">
+        <MappingFragment StoreEntitySet="AppAnswers">
+          <ScalarProperty Name="AppAnswerId" ColumnName="AppAnswerId" />
+          <ScalarProperty Name="ApplicantId" ColumnName="ApplicantId" />
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Applicants">
+      <EntityTypeMapping TypeName="unicorn_databaseModel.Applicant">
+        <MappingFragment StoreEntitySet="Applicant">
+          <ScalarProperty Name="ApplicantId" ColumnName="ApplicantId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="NIC" ColumnName="NIC" />
+          <ScalarProperty Name="TepNo" ColumnName="TepNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ExamId" ColumnName="ExamId" />
+          <ScalarProperty Name="InterviewId" ColumnName="InterviewId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="unicorn_databaseModel.Comment">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+          <ScalarProperty Name="Comment1" ColumnName="Comment" />
+          <ScalarProperty Name="Marks" ColumnName="Marks" />
+          <ScalarProperty Name="ApplicantId" ColumnName="ApplicantId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Exams">
+      <EntityTypeMapping TypeName="unicorn_databaseModel.Exam">
+        <MappingFragment StoreEntitySet="Exam">
+          <ScalarProperty Name="ExamId" ColumnName="ExamId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="NoOfQuestions" ColumnName="NoOfQuestions" />
+          <ScalarProperty Name="Programming" ColumnName="Programming" />
+          <ScalarProperty Name="Mathematics" ColumnName="Mathematics" />
+          <ScalarProperty Name="IQ" ColumnName="IQ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IntAssigns">
+      <EntityTypeMapping TypeName="unicorn_databaseModel.IntAssign">
+        <MappingFragment StoreEntitySet="IntAssign">
+          <ScalarProperty Name="IntAssignId" ColumnName="IntAssignId" />
+          <ScalarProperty Name="InterviewId" ColumnName="InterviewId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Interviews">
+      <EntityTypeMapping TypeName="unicorn_databaseModel.Interview">
+        <MappingFragment StoreEntitySet="Interview">
+          <ScalarProperty Name="InterviewId" ColumnName="InterviewId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Marks">
+      <EntityTypeMapping TypeName="unicorn_databaseModel.Mark">
+        <MappingFragment StoreEntitySet="Marks">
+          <ScalarProperty Name="MarksId" ColumnName="MarksId" />
+          <ScalarProperty Name="MCQMarks" ColumnName="MCQMarks" />
+          <ScalarProperty Name="EssayMarks" ColumnName="EssayMarks" />
+          <ScalarProperty Name="ApplicantId" ColumnName="ApplicantId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationDates">
+      <EntityTypeMapping TypeName="unicorn_databaseModel.NotificationDate">
+        <MappingFragment StoreEntitySet="NotificationDate">
+          <ScalarProperty Name="NotifiDateId" ColumnName="NotifiDateId" />
+          <ScalarProperty Name="NotifiDate" ColumnName="NotifiDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="unicorn_databaseModel.Notification">
+        <MappingFragment StoreEntitySet="Notifications">
+          <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Notification1" ColumnName="Notification" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Checked" ColumnName="Checked" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="unicorn_databaseModel.Question">
+        <MappingFragment StoreEntitySet="Questions">
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+          <ScalarProperty Name="QuestionType" ColumnName="QuestionType" />
+          <ScalarProperty Name="Question1" ColumnName="Question" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Answer1" ColumnName="Answer1" />
+          <ScalarProperty Name="Answer1State" ColumnName="Answer1State" />
+          <ScalarProperty Name="Answer2" ColumnName="Answer2" />
+          <ScalarProperty Name="Answer2State" ColumnName="Answer2State" />
+          <ScalarProperty Name="Answer3" ColumnName="Answer3" />
+          <ScalarProperty Name="Answer3State" ColumnName="Answer3State" />
+          <ScalarProperty Name="Answer4" ColumnName="Answer4" />
+          <ScalarProperty Name="Answer4State" ColumnName="Answer4State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLogins">
+      <EntityTypeMapping TypeName="unicorn_databaseModel.UserLogin">
+        <MappingFragment StoreEntitySet="UserLogin">
+          <ScalarProperty Name="UserLoginId" ColumnName="UserLoginId" />
+          <ScalarProperty Name="UserIdLogin" ColumnName="UserIdLogin" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+          <ScalarProperty Name="isInterviewer" ColumnName="isInterviewer" />
+          <ScalarProperty Name="isReceiptionist" ColumnName="isReceiptionist" />
+          <ScalarProperty Name="isApplicant" ColumnName="isApplicant" />
+          <ScalarProperty Name="LoginUsername" ColumnName="LoginUsername" />
+          <ScalarProperty Name="LoginPassword" ColumnName="LoginPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="unicorn_databaseModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TepNo" ColumnName="TepNo" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Admin" ColumnName="Admin" />
+          <ScalarProperty Name="Interviewer" ColumnName="Interviewer" />
+          <ScalarProperty Name="Receiptionist" ColumnName="Receiptionist" />
+          <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spAddApplicantInterviews" FunctionName="unicorn_databaseModel.Store.spAddApplicantInterviews" />
+    <FunctionImportMapping FunctionImportName="spAddExamApplicant" FunctionName="unicorn_databaseModel.Store.spAddExamApplicant" />
+    <FunctionImportMapping FunctionImportName="spAddInterviewres" FunctionName="unicorn_databaseModel.Store.spAddInterviewres" />
+    <FunctionImportMapping FunctionImportName="spAddQandA" FunctionName="unicorn_databaseModel.Store.spAddQandA" />
+    <FunctionImportMapping FunctionImportName="spAddTotalMarks" FunctionName="unicorn_databaseModel.Store.spAddTotalMarks" />
+    <FunctionImportMapping FunctionImportName="spCheckLogin" FunctionName="unicorn_databaseModel.Store.spCheckLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spCheckLogin_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Admin" ColumnName="Admin" />
+          <ScalarProperty Name="Interviewer" ColumnName="Interviewer" />
+          <ScalarProperty Name="Receiptionist" ColumnName="Receiptionist" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spCheckLoginInWebApp" FunctionName="unicorn_databaseModel.Store.spCheckLoginInWebApp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spCheckLoginInWebApp_Result">
+          <ScalarProperty Name="UserIdLogin" ColumnName="UserIdLogin" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+          <ScalarProperty Name="isInterviewer" ColumnName="isInterviewer" />
+          <ScalarProperty Name="isReceiptionist" ColumnName="isReceiptionist" />
+          <ScalarProperty Name="isApplicant" ColumnName="isApplicant" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spCreateInterview" FunctionName="unicorn_databaseModel.Store.spCreateInterview" />
+    <FunctionImportMapping FunctionImportName="spDeleteExam" FunctionName="unicorn_databaseModel.Store.spDeleteExam" />
+    <FunctionImportMapping FunctionImportName="spDeleteInterview" FunctionName="unicorn_databaseModel.Store.spDeleteInterview" />
+    <FunctionImportMapping FunctionImportName="spEditApplicants" FunctionName="unicorn_databaseModel.Store.spEditApplicants" />
+    <FunctionImportMapping FunctionImportName="spEditQusnAns" FunctionName="unicorn_databaseModel.Store.spEditQusnAns" />
+    <FunctionImportMapping FunctionImportName="spEditUsers" FunctionName="unicorn_databaseModel.Store.spEditUsers" />
+    <FunctionImportMapping FunctionImportName="spForgotPassword" FunctionName="unicorn_databaseModel.Store.spForgotPassword">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spForgotPassword_Result">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetAllUsers" FunctionName="unicorn_databaseModel.Store.spGetAllUsers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spGetAllUsers_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TepNo" ColumnName="TepNo" />
+          <ScalarProperty Name="Admin" ColumnName="Admin" />
+          <ScalarProperty Name="Interviewer" ColumnName="Interviewer" />
+          <ScalarProperty Name="Receiptionist" ColumnName="Receiptionist" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetAnswer" FunctionName="unicorn_databaseModel.Store.spGetAnswer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spGetAnswer_Result">
+          <ScalarProperty Name="Answer1State" ColumnName="Answer1State" />
+          <ScalarProperty Name="Answer2State" ColumnName="Answer2State" />
+          <ScalarProperty Name="Answer3State" ColumnName="Answer3State" />
+          <ScalarProperty Name="Answer4State" ColumnName="Answer4State" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetApplicantByInterviewId" FunctionName="unicorn_databaseModel.Store.spGetApplicantByInterviewId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spGetApplicantByInterviewId_Result">
+          <ScalarProperty Name="ApplicantId" ColumnName="ApplicantId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="NIC" ColumnName="NIC" />
+          <ScalarProperty Name="TepNo" ColumnName="TepNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetApplicantEmail" FunctionName="unicorn_databaseModel.Store.spGetApplicantEmail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spGetApplicantEmail_Result">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetApplicantEmailForExam" FunctionName="unicorn_databaseModel.Store.spGetApplicantEmailForExam">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spGetApplicantEmailForExam_Result">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetApplicantsByExamId" FunctionName="unicorn_databaseModel.Store.spGetApplicantsByExamId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spGetApplicantsByExamId_Result">
+          <ScalarProperty Name="ApplicantId" ColumnName="ApplicantId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="NIC" ColumnName="NIC" />
+          <ScalarProperty Name="TepNo" ColumnName="TepNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ExamId" ColumnName="ExamId" />
+          <ScalarProperty Name="InterviewId" ColumnName="InterviewId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetApplicantsResults" FunctionName="unicorn_databaseModel.Store.spGetApplicantsResults">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spGetApplicantsResults_Result">
+          <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Marks" ColumnName="Marks" />
+          <ScalarProperty Name="InterviewerName" ColumnName="InterviewerName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetAppQuestion" FunctionName="unicorn_databaseModel.Store.spGetAppQuestion">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spGetAppQuestion_Result">
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="QuestionType" ColumnName="QuestionType" />
+          <ScalarProperty Name="Answer1" ColumnName="Answer1" />
+          <ScalarProperty Name="Answer2" ColumnName="Answer2" />
+          <ScalarProperty Name="Answer3" ColumnName="Answer3" />
+          <ScalarProperty Name="Answer4" ColumnName="Answer4" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetAppResultSheet" FunctionName="unicorn_databaseModel.Store.spGetAppResultSheet">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spGetAppResultSheet_Result">
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetAppState" FunctionName="unicorn_databaseModel.Store.spGetAppState" />
+    <FunctionImportMapping FunctionImportName="spGetExamApplicant" FunctionName="unicorn_databaseModel.Store.spGetExamApplicant">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spGetExamApplicant_Result">
+          <ScalarProperty Name="ApplicantId" ColumnName="ApplicantId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="NIC" ColumnName="NIC" />
+          <ScalarProperty Name="TepNo" ColumnName="TepNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetExamByApplicant" FunctionName="unicorn_databaseModel.Store.spGetExamByApplicant">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spGetExamByApplicant_Result">
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="NoOfQuestions" ColumnName="NoOfQuestions" />
+          <ScalarProperty Name="Programming" ColumnName="Programming" />
+          <ScalarProperty Name="Mathematics" ColumnName="Mathematics" />
+          <ScalarProperty Name="IQ" ColumnName="IQ" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetExamNotifiers" FunctionName="unicorn_databaseModel.Store.spGetExamNotifiers" />
+    <FunctionImportMapping FunctionImportName="spGetExamQus" FunctionName="unicorn_databaseModel.Store.spGetExamQus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spGetExamQus_Result">
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+          <ScalarProperty Name="QuestionType" ColumnName="QuestionType" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Answer1" ColumnName="Answer1" />
+          <ScalarProperty Name="Answer2" ColumnName="Answer2" />
+          <ScalarProperty Name="Answer3" ColumnName="Answer3" />
+          <ScalarProperty Name="Answer4" ColumnName="Answer4" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetInterviewers" FunctionName="unicorn_databaseModel.Store.spGetInterviewers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spGetInterviewers_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="TepNo" ColumnName="TepNo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetInterviewInterviewers" FunctionName="unicorn_databaseModel.Store.spGetInterviewInterviewers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spGetInterviewInterviewers_Result">
+          <ScalarProperty Name="InterviewerFirstName" ColumnName="InterviewerFirstName" />
+          <ScalarProperty Name="InterviewerLastName" ColumnName="InterviewerLastName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetInterviews" FunctionName="unicorn_databaseModel.Store.spGetInterviews">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spGetInterviews_Result">
+          <ScalarProperty Name="InterviewId" ColumnName="InterviewId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetInterviewsByDate" FunctionName="unicorn_databaseModel.Store.spGetInterviewsByDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spGetInterviewsByDate_Result">
+          <ScalarProperty Name="InterviewId" ColumnName="InterviewId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetLastInterviewId" FunctionName="unicorn_databaseModel.Store.spGetLastInterviewId" />
+    <FunctionImportMapping FunctionImportName="spGetLastNotifiDate" FunctionName="unicorn_databaseModel.Store.spGetLastNotifiDate" />
+    <FunctionImportMapping FunctionImportName="spGetNotifications" FunctionName="unicorn_databaseModel.Store.spGetNotifications">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spGetNotifications_Result">
+          <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Notification" ColumnName="Notification" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Checked" ColumnName="Checked" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetNotifyExam" FunctionName="unicorn_databaseModel.Store.spGetNotifyExam" />
+    <FunctionImportMapping FunctionImportName="spGetNotifyInterviewers" FunctionName="unicorn_databaseModel.Store.spGetNotifyInterviewers" />
+    <FunctionImportMapping FunctionImportName="spGetNotifyInterviews" FunctionName="unicorn_databaseModel.Store.spGetNotifyInterviews">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spGetNotifyInterviews_Result">
+          <ScalarProperty Name="InterviewId" ColumnName="InterviewId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetQuestions" FunctionName="unicorn_databaseModel.Store.spGetQuestions">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spGetQuestions_Result">
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+          <ScalarProperty Name="QuestionType" ColumnName="QuestionType" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Answer1" ColumnName="Answer1" />
+          <ScalarProperty Name="Answer1State" ColumnName="Answer1State" />
+          <ScalarProperty Name="Answer2" ColumnName="Answer2" />
+          <ScalarProperty Name="Answer2State" ColumnName="Answer2State" />
+          <ScalarProperty Name="Answer3" ColumnName="Answer3" />
+          <ScalarProperty Name="Answer3State" ColumnName="Answer3State" />
+          <ScalarProperty Name="Answer4" ColumnName="Answer4" />
+          <ScalarProperty Name="Answer4State" ColumnName="Answer4State" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetUsers" FunctionName="unicorn_databaseModel.Store.spGetUsers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spGetUsers_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TepNo" ColumnName="TepNo" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Admin" ColumnName="Admin" />
+          <ScalarProperty Name="Interviewer" ColumnName="Interviewer" />
+          <ScalarProperty Name="Receiptionist" ColumnName="Receiptionist" />
+          <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spInsertAppAnswers" FunctionName="unicorn_databaseModel.Store.spInsertAppAnswers" />
+    <FunctionImportMapping FunctionImportName="spSelectApplicantsForInterview" FunctionName="unicorn_databaseModel.Store.spSelectApplicantsForInterview">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="unicorn_databaseModel.spSelectApplicantsForInterview_Result">
+          <ScalarProperty Name="ApplicantId" ColumnName="ApplicantId" />
+          <ScalarProperty Name="ApplicantFirstName" ColumnName="ApplicantFirstName" />
+          <ScalarProperty Name="ApplicantLastName" ColumnName="ApplicantLastName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="NIC" ColumnName="NIC" />
+          <ScalarProperty Name="TepNo" ColumnName="TepNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MCQMarks" ColumnName="MCQMarks" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSetNotifyChecked" FunctionName="unicorn_databaseModel.Store.spSetNotifyChecked" />
+    <FunctionImportMapping FunctionImportName="spUpdateAppState" FunctionName="unicorn_databaseModel.Store.spUpdateAppState" />
+    <FunctionImportMapping FunctionImportName="spUpdateNotificationDate" FunctionName="unicorn_databaseModel.Store.spUpdateNotificationDate" />
+  </EntityContainerMapping>
+</Mapping>

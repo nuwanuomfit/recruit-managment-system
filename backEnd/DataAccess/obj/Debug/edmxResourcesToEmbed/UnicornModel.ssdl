@@ -1,0 +1,565 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="unicorn_databaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AppAnswers">
+    <Key>
+      <PropertyRef Name="AppAnswerId" />
+    </Key>
+    <Property Name="AppAnswerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ApplicantId" Type="int" Nullable="false" />
+    <Property Name="QuestionId" Type="int" />
+    <Property Name="Answer" Type="int" Nullable="false" />
+    <Property Name="State" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Applicant">
+    <Key>
+      <PropertyRef Name="ApplicantId" />
+    </Key>
+    <Property Name="ApplicantId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="NIC" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="TepNo" Type="nvarchar" MaxLength="15" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="State" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="ExamId" Type="int" />
+    <Property Name="InterviewId" Type="int" />
+  </EntityType>
+  <EntityType Name="Comments">
+    <Key>
+      <PropertyRef Name="CommentId" />
+    </Key>
+    <Property Name="CommentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Marks" Type="int" />
+    <Property Name="ApplicantId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+  <EntityType Name="Exam">
+    <Key>
+      <PropertyRef Name="ExamId" />
+    </Key>
+    <Property Name="ExamId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="Duration" Type="int" Nullable="false" />
+    <Property Name="NoOfQuestions" Type="int" Nullable="false" />
+    <Property Name="Programming" Type="int" Nullable="false" />
+    <Property Name="Mathematics" Type="int" Nullable="false" />
+    <Property Name="IQ" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IntAssign">
+    <Key>
+      <PropertyRef Name="IntAssignId" />
+    </Key>
+    <Property Name="IntAssignId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InterviewId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+  <EntityType Name="Interview">
+    <Key>
+      <PropertyRef Name="InterviewId" />
+    </Key>
+    <Property Name="InterviewId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Time" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+  <EntityType Name="Marks">
+    <Key>
+      <PropertyRef Name="MarksId" />
+    </Key>
+    <Property Name="MarksId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MCQMarks" Type="int" Nullable="false" />
+    <Property Name="EssayMarks" Type="int" />
+    <Property Name="ApplicantId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+  <EntityType Name="NotificationDate">
+    <Key>
+      <PropertyRef Name="NotifiDateId" />
+    </Key>
+    <Property Name="NotifiDateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NotifiDate" Type="datetime2" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Notifications">
+    <Key>
+      <PropertyRef Name="NotificationId" />
+    </Key>
+    <Property Name="NotificationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateTime" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="Notification" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Checked" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Questions">
+    <Key>
+      <PropertyRef Name="QuestionId" />
+    </Key>
+    <Property Name="QuestionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QuestionType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Question" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="Answer1" Type="nvarchar" MaxLength="3000" Nullable="false" />
+    <Property Name="Answer1State" Type="bit" Nullable="false" />
+    <Property Name="Answer2" Type="nvarchar" MaxLength="3000" Nullable="false" />
+    <Property Name="Answer2State" Type="bit" Nullable="false" />
+    <Property Name="Answer3" Type="nvarchar" MaxLength="3000" Nullable="false" />
+    <Property Name="Answer3State" Type="bit" Nullable="false" />
+    <Property Name="Answer4" Type="nvarchar" MaxLength="3000" Nullable="false" />
+    <Property Name="Answer4State" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="UserLoginId" />
+    </Key>
+    <Property Name="UserLoginId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserIdLogin" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="isAdmin" Type="bit" />
+    <Property Name="isInterviewer" Type="bit" />
+    <Property Name="isReceiptionist" Type="bit" />
+    <Property Name="isApplicant" Type="bit" />
+    <Property Name="LoginUsername" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LoginPassword" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpId" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="TepNo" Type="nvarchar" MaxLength="15" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Admin" Type="bit" Nullable="false" />
+    <Property Name="Interviewer" Type="bit" Nullable="false" />
+    <Property Name="Receiptionist" Type="bit" Nullable="false" />
+    <Property Name="AdminId" Type="int" />
+  </EntityType>
+  <Association Name="FK_AppAnswers_Applicant">
+    <End Role="Applicant" Type="Self.Applicant" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppAnswers" Type="Self.AppAnswers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applicant">
+        <PropertyRef Name="ApplicantId" />
+      </Principal>
+      <Dependent Role="AppAnswers">
+        <PropertyRef Name="ApplicantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppAnswers_Questions">
+    <End Role="Questions" Type="Self.Questions" Multiplicity="0..1" />
+    <End Role="AppAnswers" Type="Self.AppAnswers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Questions">
+        <PropertyRef Name="QuestionId" />
+      </Principal>
+      <Dependent Role="AppAnswers">
+        <PropertyRef Name="QuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Applicant_Exam">
+    <End Role="Exam" Type="Self.Exam" Multiplicity="0..1" />
+    <End Role="Applicant" Type="Self.Applicant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exam">
+        <PropertyRef Name="ExamId" />
+      </Principal>
+      <Dependent Role="Applicant">
+        <PropertyRef Name="ExamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Applicant_Interview">
+    <End Role="Interview" Type="Self.Interview" Multiplicity="0..1" />
+    <End Role="Applicant" Type="Self.Applicant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Interview">
+        <PropertyRef Name="InterviewId" />
+      </Principal>
+      <Dependent Role="Applicant">
+        <PropertyRef Name="InterviewId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Applicant_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Applicant" Type="Self.Applicant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Applicant">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comments_Applicant">
+    <End Role="Applicant" Type="Self.Applicant" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applicant">
+        <PropertyRef Name="ApplicantId" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="ApplicantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comments_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IntAssign_Interview">
+    <End Role="Interview" Type="Self.Interview" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="IntAssign" Type="Self.IntAssign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Interview">
+        <PropertyRef Name="InterviewId" />
+      </Principal>
+      <Dependent Role="IntAssign">
+        <PropertyRef Name="InterviewId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IntAssign_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="IntAssign" Type="Self.IntAssign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="IntAssign">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Interview_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Interview" Type="Self.Interview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Interview">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Marks_Applicant">
+    <End Role="Applicant" Type="Self.Applicant" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Marks" Type="Self.Marks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applicant">
+        <PropertyRef Name="ApplicantId" />
+      </Principal>
+      <Dependent Role="Marks">
+        <PropertyRef Name="ApplicantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Marks_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Marks" Type="Self.Marks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Marks">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notifications_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Notifications" Type="Self.Notifications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Notifications">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Questions_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Questions">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="spAddApplicantInterviews" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="interviewId" Type="int" Mode="In" />
+    <Parameter Name="applicantId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spAddExamApplicant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ExamId" Type="int" Mode="In" />
+    <Parameter Name="ApplicantId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spAddInterviewres" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="interviewId" Type="int" Mode="In" />
+    <Parameter Name="interviewer1Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spAddQandA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="QuestionId" Type="int" Mode="In" />
+    <Parameter Name="QuestionType" Type="nvarchar" Mode="In" />
+    <Parameter Name="Question" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Date" Type="date" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="Answer1" Type="nvarchar" Mode="In" />
+    <Parameter Name="Answer1state" Type="bit" Mode="In" />
+    <Parameter Name="Answer2" Type="nvarchar" Mode="In" />
+    <Parameter Name="Answer2state" Type="bit" Mode="In" />
+    <Parameter Name="Answer3" Type="nvarchar" Mode="In" />
+    <Parameter Name="Answer3state" Type="bit" Mode="In" />
+    <Parameter Name="Answer4" Type="nvarchar" Mode="In" />
+    <Parameter Name="Answer4state" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="spAddTotalMarks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ApplicantId" Type="int" Mode="In" />
+    <Parameter Name="MCQMarks" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spCheckLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="nvarchar" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spCheckLoginInWebApp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="nvarchar" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spCreateInterview" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="interviewId" Type="int" Mode="In" />
+    <Parameter Name="date" Type="datetime" Mode="In" />
+    <Parameter Name="time" Type="datetime" Mode="In" />
+    <Parameter Name="adminId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spDeleteExam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ExamId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spDeleteInterview" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="interviewId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spEditApplicants" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ApplicantId" Type="int" Mode="In" />
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Gender" Type="nvarchar" Mode="In" />
+    <Parameter Name="NIC" Type="nvarchar" Mode="In" />
+    <Parameter Name="TepNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="State" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spEditQusnAns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="QuestionId" Type="int" Mode="In" />
+    <Parameter Name="Question" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Answer1" Type="nvarchar" Mode="In" />
+    <Parameter Name="Answer1state" Type="bit" Mode="In" />
+    <Parameter Name="Answer2" Type="nvarchar" Mode="In" />
+    <Parameter Name="Answer2state" Type="bit" Mode="In" />
+    <Parameter Name="Answer3" Type="nvarchar" Mode="In" />
+    <Parameter Name="Answer3state" Type="bit" Mode="In" />
+    <Parameter Name="Answer4" Type="nvarchar" Mode="In" />
+    <Parameter Name="Answer4state" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="spEditUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="EmpId" Type="nvarchar" Mode="In" />
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Gender" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="TepNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Admin" Type="bit" Mode="In" />
+    <Parameter Name="Interviewer" Type="bit" Mode="In" />
+    <Parameter Name="Receiptionist" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="spForgotPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="email" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spGetAllUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetAnswer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="QuestionId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetApplicantByInterviewId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InterviewId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetApplicantEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="applicantId" Type="int" Mode="In" />
+    <Parameter Name="interviewId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetApplicantEmailForExam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="applicantId" Type="int" Mode="In" />
+    <Parameter Name="examId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetApplicantsByExamId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="examId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetApplicantsResults" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="applicantId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetAppQuestion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="QuestionId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetAppResultSheet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ApplicantId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetAppState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ApplicantId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetExamApplicant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetExamByApplicant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="applicantId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetExamNotifiers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetExamQus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="prog" Type="int" Mode="In" />
+    <Parameter Name="math" Type="int" Mode="In" />
+    <Parameter Name="iq" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetInterviewers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetInterviewInterviewers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="interviewId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetInterviews" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetInterviewsByDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="spGetLastInterviewId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetLastNotifiDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetNotifications" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetNotifyExam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="spGetNotifyInterviewers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InterviewId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetNotifyInterviews" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="spGetQuestions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="questionType" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spGetUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spInsertAppAnswers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ApplicantId" Type="int" Mode="In" />
+    <Parameter Name="QuestionId" Type="int" Mode="In" />
+    <Parameter Name="Answer" Type="int" Mode="In" />
+    <Parameter Name="State" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="spSelectApplicantsForInterview" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spSetNotifyChecked" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NotifyId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spUpdateAppState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ApplicantId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spUpdateNotificationDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NotifiDate" Type="datetime2" Mode="In" />
+  </Function>
+  <EntityContainer Name="unicorn_databaseModelStoreContainer">
+    <EntitySet Name="AppAnswers" EntityType="Self.AppAnswers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Applicant" EntityType="Self.Applicant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exam" EntityType="Self.Exam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IntAssign" EntityType="Self.IntAssign" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Interview" EntityType="Self.Interview" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Marks" EntityType="Self.Marks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NotificationDate" EntityType="Self.NotificationDate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notifications" EntityType="Self.Notifications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserLogin" EntityType="Self.UserLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AppAnswers_Applicant" Association="Self.FK_AppAnswers_Applicant">
+      <End Role="Applicant" EntitySet="Applicant" />
+      <End Role="AppAnswers" EntitySet="AppAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppAnswers_Questions" Association="Self.FK_AppAnswers_Questions">
+      <End Role="Questions" EntitySet="Questions" />
+      <End Role="AppAnswers" EntitySet="AppAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Applicant_Exam" Association="Self.FK_Applicant_Exam">
+      <End Role="Exam" EntitySet="Exam" />
+      <End Role="Applicant" EntitySet="Applicant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Applicant_Interview" Association="Self.FK_Applicant_Interview">
+      <End Role="Interview" EntitySet="Interview" />
+      <End Role="Applicant" EntitySet="Applicant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Applicant_User" Association="Self.FK_Applicant_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Applicant" EntitySet="Applicant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comments_Applicant" Association="Self.FK_Comments_Applicant">
+      <End Role="Applicant" EntitySet="Applicant" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comments_User" Association="Self.FK_Comments_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IntAssign_Interview" Association="Self.FK_IntAssign_Interview">
+      <End Role="Interview" EntitySet="Interview" />
+      <End Role="IntAssign" EntitySet="IntAssign" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IntAssign_User" Association="Self.FK_IntAssign_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="IntAssign" EntitySet="IntAssign" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Interview_User" Association="Self.FK_Interview_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Interview" EntitySet="Interview" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Marks_Applicant" Association="Self.FK_Marks_Applicant">
+      <End Role="Applicant" EntitySet="Applicant" />
+      <End Role="Marks" EntitySet="Marks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Marks_User" Association="Self.FK_Marks_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Marks" EntitySet="Marks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notifications_User" Association="Self.FK_Notifications_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Notifications" EntitySet="Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Questions_User" Association="Self.FK_Questions_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Questions" EntitySet="Questions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

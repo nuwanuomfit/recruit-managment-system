@@ -1,0 +1,23 @@
+G:\Asp.net Software project\unicornBackEnd\DataAccess\bin\Release\DataAccess.dll.config
+G:\Asp.net Software project\unicornBackEnd\DataAccess\bin\Release\DataAccess.dll
+G:\Asp.net Software project\unicornBackEnd\DataAccess\bin\Release\DataAccess.pdb
+G:\Asp.net Software project\unicornBackEnd\DataAccess\bin\Release\EntityFramework.dll
+G:\Asp.net Software project\unicornBackEnd\DataAccess\bin\Release\EntityFramework.SqlServer.dll
+G:\Asp.net Software project\unicornBackEnd\DataAccess\bin\Release\EntityFramework.xml
+G:\Asp.net Software project\unicornBackEnd\DataAccess\bin\Release\EntityFramework.SqlServer.xml
+G:\Asp.net Software project\unicornBackEnd\DataAccess\obj\Release\DataAccess.csprojResolveAssemblyReference.cache
+G:\Asp.net Software project\unicornBackEnd\DataAccess\obj\Release\DataAccess.csproj.CoreCompileInputs.cache
+G:\Asp.net Software project\unicornBackEnd\DataAccess\obj\Release\DataAccess.dll
+G:\Asp.net Software project\unicornBackEnd\DataAccess\obj\Release\DataAccess.pdb
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\bin\Release\DataAccess.dll.config
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\bin\Release\DataAccess.dll
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\bin\Release\DataAccess.pdb
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\bin\Release\EntityFramework.dll
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\bin\Release\EntityFramework.SqlServer.dll
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\bin\Release\EntityFramework.xml
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\bin\Release\EntityFramework.SqlServer.xml
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\obj\Release\DataAccess.csprojAssemblyReference.cache
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\obj\Release\DataAccess.csproj.CoreCompileInputs.cache
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\obj\Release\DataAccess.csproj.CopyComplete
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\obj\Release\DataAccess.dll
+D:\Projects\Second year software project\unicornBackEnd\DataAccess\obj\Release\DataAccess.pdb
